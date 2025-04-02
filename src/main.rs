@@ -31,6 +31,15 @@ fn get_correct_conjugation(pronoun: &str, verb: &str) -> String {
         ("Voi", "partire") => "Voi partite".to_string(),
         ("Loro", "partire") => "Loro partono".to_string(),
 
+        // VIVERE
+        ("Io", "vivere") => "Io vivo".to_string(),
+        ("Tu", "vivere") => "Tu vivi".to_string(),
+        ("Lei", "vivere") => "Lei vive".to_string(),
+        ("Lui", "vivere") => "Lui vive".to_string(),
+        ("Noi", "vivere") => "Noi viviamo".to_string(),
+        ("Voi", "vivere") => "Voi vivete".to_string(),
+        ("Loro", "vivere") => "Loro vivono".to_string(),
+
         _ => "unknown".to_string(),
     }
 }
@@ -50,7 +59,7 @@ fn main() {
     let verbs = ["mangiare", "dormire", "partire", "vivere", "prendere", "comprare", "vendere", "lavorare", "vedere", "studiare", "finire", "preparare", "preferire", "scrivere", "sentire", "parlare"];
     
     let number1 = rand::rng().random_range(0..=6);
-    let number2 = rand::rng().random_range(0..=2);
+    let number2 = rand::rng().random_range(0..=3);
 
     let selected_pronoun = pronouns[number1];
     let selected_verb = verbs[number2];
@@ -62,7 +71,7 @@ fn main() {
         let pronouns = ["Io", "Tu", "Lei", "Lui", "Noi", "Voi", "Loro"];
         let mut conjugations = String::new();
     
-        for pronoun in pronouns.iter() {
+        for pronoun in pronouns {
             let conjugation = get_correct_conjugation(pronoun, selected_verb);
             conjugations.push_str(&format!("{}\n", conjugation));
         }
